@@ -56,14 +56,14 @@ class CaffeVideoWrapper:
 		, use_convolutional_pred=DefaultVideoArgs.use_convolutional_pred, use_dropout=DefaultVideoArgs.use_dropout
 		"""
 
-		self._data_inputs = VideoDBBuilder(batch_size, **kwargs);
+		self._data_inputs = VideoDBBuilder(batch_size, **kwargs)
 		self._gpus = [i for i in range(self._data_inputs.GPU_CNT)]
 		self.load_model_path = load_model_path
 		self.model_name = model_name
 		self.model_depth = model_depth
 		self._mdl_params = kwargs
 
-	def __call__(layers, stimulus_paths):
+	def __call__(self, layers, stimulus_paths):
 		self._data_inputs.make_from_paths(stimulus_paths)
 		self._get_activations(layers)
 

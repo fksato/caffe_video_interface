@@ -8,7 +8,7 @@ from math import ceil
 
 from create_video_db import create_video_db
 
-class VideoDBBuilder():
+class VideoDBBuilder:
 
 	def __init__(self, stimulus_id, lmdb_path, temporal_depth, fpv=75, video_strt_offset=15, clips_overlap=0
 					 , batch_size=4, gpu_count=2, max_num_records=6e4, min_records_factor=1, *args, **kwargs):
