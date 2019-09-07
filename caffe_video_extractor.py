@@ -72,7 +72,7 @@ class CaffeVideoWrapper:
 
 		a = []
 
-		if self._data_inputs.gpu_batch_combo==None:
+		if self._data_inputs.gpu_batch_combo is None:
 			for i in self._data_inputs.video_lmdb_paths:
 				# vmz extract_features:
 				a.append(feature_extractor(self.model_name, self.model_depth, gpu_list=self._gpus, load_model_path=self.load_model_path, test_data=i, batch_size=self._data_inputs.BATCH_SIZE, layers=layer_names

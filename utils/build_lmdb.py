@@ -141,11 +141,11 @@ class VideoDBBuilder():
 		div_criteria = num_clips * self.BATCH_SIZE * self.GPU_CNT # extract_features requires number of records to divide evenly
 		# start with 4 files:
 		num_files = 4
-		files_rem = int(total_num_records%num_files)
+		# files_rem = int(total_num_records%num_files)
 		records_per_file = int(total_num_records/num_files)
 		
 		if records_per_file > self.MAX_RECORDS:
-			files_rem = int(total_num_records % self.MAX_RECORDS)
+			# files_rem = int(total_num_records % self.MAX_RECORDS)
 			num_files = int(total_num_records / self.MAX_RECORDS)
 			records_per_file = int(total_num_records/num_files)
 			
@@ -175,7 +175,7 @@ class VideoDBBuilder():
 
 		return file_starts, file_strides
 
-	def _get_gpu_batch_combo(file_remainder):
+	def _get_gpu_batch_combo(self, file_remainder):
 		gpu_check = int(file_remainder % self.GPU_CNT)
 		batch_check = int(file_remainder % self.BATCH_SIZE)
 		if gpu_check==0 and (batch_check==0 or batch_check!=0):
