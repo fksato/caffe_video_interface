@@ -28,7 +28,7 @@ conda install -c conda-forge ffmpeg
 conda install -c conda-forge python-lmdb
 
 cd <PyTorch dir>
-USE_FFMPEG=1 USE_OPENCV=1 USE_LEVELDB=0 USE_LMDB=1 python setup.py install
+USE_FFMPEG=1 USE_OPENCV=1 USE_LEVELDB=0 USE_LMDB=1 USE_CUDA=1 python setup.py install
 
 # test installation
 python -c 'from caffe2.python import core' 2>/dev/null && echo "Success" || echo "Failure"
